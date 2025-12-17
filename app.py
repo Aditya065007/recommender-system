@@ -32,7 +32,7 @@ st.title("📚 Book Recommendation System")
 
 mode = st.radio(
     "Choose Recommendation Type",
-    ("Content-Based", "Collaborative")
+    ("Based on a book you like", "Based on a user")
 )
 
 # -------------------------------
@@ -87,3 +87,4 @@ elif mode == "Collaborative":
         st.subheader("Recommended Books")
         for title in recommended_titles:
             st.write("•", title)
+
