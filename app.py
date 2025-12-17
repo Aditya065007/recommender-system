@@ -38,7 +38,7 @@ mode = st.radio(
 # -------------------------------
 # Content-Based Recommendation
 # -------------------------------
-if mode == "Content-Based":
+if mode == "Based on a book you like":
     book = st.selectbox("Select a Book", item_df["title"].unique())
 
     if st.button("Recommend"):
@@ -60,7 +60,7 @@ if mode == "Content-Based":
 # -------------------------------
 # Collaborative Filtering
 # -------------------------------
-elif mode == "Collaborative":
+elif mode == "Based on a user":
     user = st.selectbox("Select User ID", ratings_df["user_id"].unique())
 
     if st.button("Recommend"):
@@ -87,4 +87,5 @@ elif mode == "Collaborative":
         st.subheader("Recommended Books")
         for title in recommended_titles:
             st.write("•", title)
+
 
