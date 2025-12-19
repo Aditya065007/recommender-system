@@ -34,7 +34,7 @@ st.title("📚 Book Recommendation System")
 
 mode = st.radio(
     "Choose Recommendation Type",
-    ("Based on a book you like", "Based on a user")
+    ("Based on a book you like", "Based on a friend")
 )
 
 # -------------------------------
@@ -62,7 +62,7 @@ if mode == "Based on a book you like":
 # -------------------------------
 # Collaborative Filtering
 # -------------------------------
-elif mode == "Based on a user":
+elif mode == "Based on a friend":
     selected_user = st.selectbox(
     "Select Your Name",
     users_df['user_name'])
@@ -97,6 +97,7 @@ elif mode == "Based on a user":
         st.subheader("Recommended Books")
         for title in recommended_titles:
             st.write("•", title)
+
 
 
 
