@@ -2,6 +2,53 @@ import streamlit as st
 import pandas as pd
 import pickle
 
+st.markdown("""
+    <style>
+    /* Import font */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    /* Apply font to entire app */
+    html, body, [class*="css"]  {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Main title */
+    h1 {
+        font-size: 42px !important;
+        font-weight: 700;
+    }
+
+    /* Section headers */
+    h2 {
+        font-size: 28px !important;
+        font-weight: 600;
+    }
+
+    /* Radio buttons & labels */
+    label {
+        font-size: 18px !important;
+    }
+
+    /* Dropdown text */
+    div[data-baseweb="select"] {
+        font-size: 16px;
+    }
+
+    /* Button text */
+    button {
+        font-size: 16px !important;
+        font-weight: 600;
+    }
+
+    /* Recommended books list */
+    ul {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -97,6 +144,7 @@ elif mode == "Based on a friend":
         st.subheader("Recommended Books")
         for title in recommended_titles:
             st.write("•", title)
+
 
 
 
