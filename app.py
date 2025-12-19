@@ -10,6 +10,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 # -------------------------------
 ratings_df = pd.read_csv("data/sample_data.csv")
 item_df = pd.read_csv("data/item_data.csv")
+users_df = pd.read_csv("data/users_10001_names.csv")
+
 
 # Load collaborative filtering model
 svd_model = pickle.load(open("models/svd_model.pkl", "rb"))
@@ -61,7 +63,15 @@ if mode == "Based on a book you like":
 # Collaborative Filtering
 # -------------------------------
 elif mode == "Based on a user":
-    user = st.selectbox("Select User ID", ratings_df["user_id"].unique())
+    selected_user = st.selectbox(
+    "Select Your Name",
+    users_df['user_name'])
+
+    user = users_df.loc[
+        users_df['user_name'] == selected_user,
+        'user_id'
+    ].values[0]
+
 
     if st.button("Recommend"):
         seen_items = set(
@@ -87,5 +97,6 @@ elif mode == "Based on a user":
         st.subheader("Recommended Books")
         for title in recommended_titles:
             st.write("•", title)
+
 
 
